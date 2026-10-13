@@ -1,12 +1,7 @@
 /*
 Re-draws checkboxes so they are fully square (though border-radius can be modified).
 
-Though it can't be modified with variables, the SVG string can be modified to change
-the opacity of the checkmark by editing the stroke-opacity property (0 = transparent, 1 = opaque).
-Default is 0.7 for both light and dark checkmarks.
-
-Note that --color-accent-primary is the browser's theme's color.
-AccentColor belongs to the system's accent color.
+Though it can't be modified with variables, the SVG string can be modified to change the opacity of the checkmark by editing the stroke-opacity property (0 = transparent, 1 = opaque). Default is 0.7 for both light and dark checkmarks.
 */
 
 :root {
@@ -42,14 +37,12 @@ input[type="checkbox"] {
     border: var(--checkbox-web-border) !important;
     border-radius: var(--checkbox-web-border-radius) !important;
     background: var(--checkbox-web-background) !important;
-}
-input[type="checkbox"]:checked {
-    background-color: var(--checkbox-web-background-color-checked) !important;
-    background-image: var(--checkbox-web-light-theme-checkmark) !important;
-}
-@media (prefers-color-scheme: dark) {
-    input[type="checkbox"]:checked {
-        background-image: var(--checkbox-web-dark-theme-checkmark) !important;
+    &:checked {
+        background-color: var(--checkbox-web-background-color-checked) !important;
+        background-image: var(--checkbox-web-light-theme-checkmark) !important;
+            @media (prefers-color-scheme: dark) {
+                background-image: var(--checkbox-web-dark-theme-checkmark) !important;
+            }
     }
 }
 
@@ -62,14 +55,12 @@ input[type="checkbox"]:checked {
         border: var(--checkbox-ui-border) !important;
         border-radius: var(--checkbox-ui-border-radius) !important;
         background: var(--checkbox-ui-background) !important;
-    }
-    input[type="checkbox"]:checked {
-        background-color: var(--checkbox-ui-background-color-checked) !important;
-        background-image: var(--checkbox-ui-light-theme-checkmark) !important;
-    }
-    @media (prefers-color-scheme: dark) {
-        input[type="checkbox"]:checked {
-            background-image: var(--checkbox-ui-dark-theme-checkmark) !important;
+        &:checked {
+            background-color: var(--checkbox-ui-background-color-checked) !important;
+            background-image: var(--checkbox-ui-light-theme-checkmark) !important;
+                @media (prefers-color-scheme: dark) {
+                    background-image: var(--checkbox-ui-dark-theme-checkmark) !important;
+                }
         }
     }
 }
